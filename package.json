@@ -1,0 +1,19 @@
+{
+  "name": "authenticator",
+  "version": "0.0.1",
+  "description": "Projeto que visa estudar conceitos de código implementando um sistema de autentificação",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonDffy/Authenticator.git"
+  },
+  "author": "Leandro Oliveira",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MonDffy/Authenticator/issues"
+  },
+  "homepage": "https://github.com/MonDffy/Authenticator#readme"
+}
