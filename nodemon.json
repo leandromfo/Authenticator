@@ -1,0 +1,8 @@
+{
+	"execMap": {
+		"ts": "node --inspect=0.0.0.0:9229 -r sucrase/register"
+	},
+	"watch": ["src"],
+	"ext": "ts",
+	"legacyWatch": true
+}

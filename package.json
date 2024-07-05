@@ -1,28 +1,31 @@
 {
-  "name": "authenticator",
-  "version": "0.0.1",
-  "description": "Projeto que visa estudar conceitos de código implementando um sistema de autentificação",
-  "main": "index.ts",
-  "scripts": {
-    "build": "tsc",
-    "dev": "nodemon --legacy-watch ./src/index.ts",
-    "start": "node ./dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MonDffy/Authenticator.git"
-  },
-  "author": "Leandro Oliveira",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/MonDffy/Authenticator/issues"
-  },
-  "homepage": "https://github.com/MonDffy/Authenticator#readme",
-  "devDependencies": {
-    "@types/node": "^20.14.9",
-    "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
-  }
+	"name": "authenticator",
+	"version": "0.0.1",
+	"description": "Projeto que visa estudar conceitos de código implementando um sistema de autentificação",
+	"main": "index.ts",
+	"scripts": {
+		"build": "tsc",
+		"dev": "nodemon src/index.ts",
+		"docker:dev": "wsl docker compose up dev",
+		"docker:prod": "wsl docker compose up -d prod --build",
+		"prod": "tsc & node ./dist/index.js",
+		"start": "node ./dist/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MonDffy/Authenticator.git"
+	},
+	"author": "Leandro Oliveira",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/MonDffy/Authenticator/issues"
+	},
+	"homepage": "https://github.com/MonDffy/Authenticator#readme",
+	"devDependencies": {
+		"@types/node": "^20.14.9",
+		"nodemon": "^3.1.4",
+		"sucrase": "^3.35.0",
+		"typescript": "^5.5.3"
+	}
 }

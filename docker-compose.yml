@@ -1,0 +1,23 @@
+services:
+  dev:
+    build:
+      dockerfile: Dockerfile
+      target: dev
+    command: npm run dev
+    container_name: authentificador-dev
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes: 
+      - .:/home
+
+  prod:
+    build:
+      dockerfile: Dockerfile
+      target: prod
+    command: npm run prod
+    container_name: authentificador-prod
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./files:/home/files
