@@ -1,7 +1,7 @@
-import { endAplication, startAplication } from "./config"
+import { endApplication, startApplication } from "./config"
 
-startAplication()
+startApplication()
 
 process.on("SIGINT" || "SIGTERM", async () => {
-	await endAplication()
+	await endApplication()
 })

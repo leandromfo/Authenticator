@@ -1,43 +1,49 @@
 import express, { Express, Request, Response } from "express"
-import { Method, ServerModel } from "../../Domain/Models/http-model"
+import { Method, ServerModel } from "../../Domain/Models/server-model"
 import ServerAdapterInterface from "./Interfaces/server-adapter-interface"
+import { Server } from "http"
 
 export default class ExpressAdapter implements ServerAdapterInterface {
-	server: Express
+	application: Express
+	server!: Server
 
 	constructor() {
-		this.server = express()
+		this.application = express()
 	}
 
-	private create(func: Function): any {
-		return async function (req: Request, res: Response) {
-			await func(req, res)
-		}
+	close(): void {
+		this.server.close()
+	}
+
+	listen(port: number): void {
+		this.server = this.application.listen(port)
 	}
 
 	setRoutes(routes: ServerModel[]): void {
 		routes.forEach(route => {
 			switch (route.method) {
 				case Method.all:
-					this.server.all(route.name, this.create(route.func))
+					this.application.all(route.name, this.create(route.func))
 					break
 				case Method.delete:
-					this.server.delete(route.name, this.create(route.func))
+					this.application.delete(route.name, this.create(route.func))
 					break
 				case Method.get:
-					this.server.get(route.name, this.create(route.func))
+					this.application.get(route.name, this.create(route.func))
 					break
 				case Method.post:
-					this.server.post(route.name, this.create(route.func))
+					this.application.post(route.name, this.create(route.func))
 					break
 				case Method.patch:
-					this.server.patch(route.name, this.create(route.func))
+					this.application.patch(route.name, this.create(route.func))
 					break
 			}
 		})
 	}
 
-	listen(port: number): void {
-		this.server.listen(port)
+	private create(func: Function): any {
+		return async function (req: Request, res: Response) {
+			await func(req, res)
+		}
 	}
 }
