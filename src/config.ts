@@ -1,7 +1,10 @@
 import Database from "./App/database"
-import Server from "./App/http"
+import Server from "./App/server"
 import ExpressAdapter from "./Infra/Adapters/express-adapter"
 import PgAdapter from "./Infra/Adapters/pg-admin-adapter"
+
+const serverAdapterInterface = new ExpressAdapter()
+const server = new Server(serverAdapterInterface)
 
 const databaseProperties = {
 	user: process.env.DB_USER || "",
@@ -13,15 +16,14 @@ const databaseProperties = {
 const databaseAdapter = new PgAdapter(databaseProperties)
 export const database = new Database(databaseAdapter)
 
-export function startAplication(): void {
+export async function startApplication(): Promise<void> {
 	const port = Number.parseInt(process.env.PORT as string) | 3000
-	const serverAdapterInterface = new ExpressAdapter()
-	const server = new Server(serverAdapterInterface)
-	server.init(port)
 
-	database.init()
+	server.init(port)
+	await database.init()
 }
 
-export async function endAplication(): Promise<void> {
+export async function endApplication(): Promise<void> {
+	server.release()
 	await database.release()
 }
