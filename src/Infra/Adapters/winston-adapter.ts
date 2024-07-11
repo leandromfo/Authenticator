@@ -19,7 +19,6 @@ export default class WinstonAdapter implements LoggerAdapterInterface {
 		let loggerConfig: transport
 		const { combine, timestamp, printf } = format
 		const myTimestamp = timestamp({ format: parameters.timestampFormat })
-
 		if (parameters.isProd) {
 			loggerConfig = new winston.transports.File({
 				filename: parameters.logFile,
@@ -40,8 +39,8 @@ export default class WinstonAdapter implements LoggerAdapterInterface {
 		this.logger.add(loggerConfig)
 	}
 
-	log(logLevel: LogLevel, message: string): void {
-		this.logger.log(logLevel, message)
+	log(logLevel: LogLevel, message: string, parameters?: any): void {
+		this.logger.log(logLevel, message + parameters)
 	}
 
 	private getLevels(): Record<string, number> {

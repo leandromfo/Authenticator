@@ -11,8 +11,8 @@ export default class Logger {
 		this.loggerAdapter.init(loggerConfig)
 	}
 
-	log(logLevel: LogLevel, message: string) {
-		this.loggerAdapter.log(logLevel, message)
+	log(logLevel: LogLevel, message: string, parameters?: any) {
+		this.loggerAdapter.log(logLevel, message, parameters)
 	}
 
 	release(): void {
