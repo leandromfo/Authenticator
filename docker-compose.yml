@@ -13,6 +13,7 @@ services:
       - .:/home
 
   db-dev:
+    container_name: Authentificator-db-dev
     environment:
       POSTGRES_DB: dev
       POSTGRES_PASSWORD: adm

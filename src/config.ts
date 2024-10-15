@@ -34,7 +34,7 @@ export async function startApplication(): Promise<void> {
 	logger.log(LogLevel.info, "Iniciando aplicação...")
 	await database.init()
 	server.init(Number.parseInt(process.env.PORT || "3000"))
-	logger.log(LogLevel.info, "Aplicação iniciada!")
+	logger.log(LogLevel.info, "Aplicação completamente iniciada!")
 }
 
 export async function endApplication(): Promise<void> {

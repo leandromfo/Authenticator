@@ -30,8 +30,11 @@ export default class WinstonAdapter implements LoggerAdapterInterface {
 				level: parameters.logLevelDev,
 				format: combine(
 					myTimestamp,
-					printf(({ level, message, timestamp }) => {
-						return `${timestamp} | ${level}: ${message}`
+					printf(({ level, message, timestamp, additionalInfo }) => {
+						const parametersString = additionalInfo
+							? "\n" + JSON.stringify(additionalInfo, null, 2)
+							: ""
+						return `\n${timestamp} | ${level}: ${message}${parametersString}`
 					})
 				),
 			})
@@ -40,7 +43,9 @@ export default class WinstonAdapter implements LoggerAdapterInterface {
 	}
 
 	log(logLevel: LogLevel, message: string, parameters?: any): void {
-		this.logger.log(logLevel, message + parameters)
+		if (parameters != undefined)
+			this.logger.log(logLevel, message, { additionalInfo: parameters })
+		else this.logger.log(logLevel, message)
 	}
 
 	private getLevels(): Record<string, number> {
