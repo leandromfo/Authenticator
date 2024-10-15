@@ -1,5 +1,5 @@
 import { Client } from "pg"
-import DatabaseAdapterInterface from "./Interfaces/database-adapter-interface"
+import DatabaseAdapterInterface from "../Interfaces/database-adapter-interface"
 
 export default class PgAdapter implements DatabaseAdapterInterface {
 	client: Client

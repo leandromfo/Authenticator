@@ -1,6 +1,6 @@
 import { logger } from "../config"
 import { LogLevel } from "../Domain/Enums/log-level-enum"
-import DatabaseAdapterInterface from "../Infra/Adapters/Interfaces/database-adapter-interface"
+import DatabaseAdapterInterface from "../Infra/Interfaces/database-adapter-interface"
 
 export default class Database {
 	databaseAdapter: DatabaseAdapterInterface

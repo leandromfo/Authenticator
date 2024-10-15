@@ -1,7 +1,7 @@
 import { logger } from "../config"
 import { LogLevel } from "../Domain/Enums/log-level-enum"
 import { Method, ServerModel } from "../Domain/Models/server-model"
-import ServerAdapterInterface from "../Infra/Adapters/Interfaces/server-adapter-interface"
+import ServerAdapterInterface from "../Infra/Interfaces/server-adapter-interface"
 
 export default class Server {
 	serverAdapter: ServerAdapterInterface

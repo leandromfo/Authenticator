@@ -1,4 +1,4 @@
-import { ServerModel } from "../../../Domain/Models/server-model"
+import { ServerModel } from "../../Domain/Models/server-model"
 
 export default interface ServerAdapterInterface {
 	close(): void

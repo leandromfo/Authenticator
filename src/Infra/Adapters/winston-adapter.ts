@@ -1,7 +1,7 @@
 import winston, { format, Logger, transport } from "winston"
 import { InitLogger } from "../../App/logger"
 import { LogLevel } from "../../Domain/Enums/log-level-enum"
-import LoggerAdapterInterface from "./Interfaces/logger-adapter-interface"
+import LoggerAdapterInterface from "../Interfaces/logger-adapter-interface"
 
 export default class WinstonAdapter implements LoggerAdapterInterface {
 	logger: Logger

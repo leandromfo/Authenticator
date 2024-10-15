@@ -1,5 +1,5 @@
-import { InitLogger } from "../../../App/logger"
-import { LogLevel } from "../../../Domain/Enums/log-level-enum"
+import { InitLogger } from "../../App/logger"
+import { LogLevel } from "../../Domain/Enums/log-level-enum"
 
 export default interface LoggerAdapterInterface {
 	close(): void

@@ -1,5 +1,5 @@
 import { LogLevel } from "../Domain/Enums/log-level-enum"
-import LoggerAdapterInterface from "../Infra/Adapters/Interfaces/logger-adapter-interface"
+import LoggerAdapterInterface from "../Infra/Interfaces/logger-adapter-interface"
 
 export default class Logger {
 	loggerAdapter: LoggerAdapterInterface

@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express"
 import { Method, ServerModel } from "../../Domain/Models/server-model"
-import ServerAdapterInterface from "./Interfaces/server-adapter-interface"
+import ServerAdapterInterface from "../Interfaces/server-adapter-interface"
 import { Server } from "http"
 
 export default class ExpressAdapter implements ServerAdapterInterface {
