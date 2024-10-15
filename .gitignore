@@ -2,7 +2,4 @@
 /files
 /node_modules
 /sql
-.env.dev
 .env.prod
-docker-compose.yml
-notes.md

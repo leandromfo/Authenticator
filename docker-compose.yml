@@ -1,0 +1,28 @@
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    command: npm run dev
+    container_name: Authentificator-dev
+    env_file: .env.dev
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - .:/home
+
+  db-dev:
+    environment:
+      POSTGRES_DB: dev
+      POSTGRES_PASSWORD: adm
+      POSTGRES_USER: adm
+    image: postgres
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - pgdata:/postgresql/data
+
+volumes:
+  pgdata:

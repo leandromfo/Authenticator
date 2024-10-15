@@ -1,0 +1,20 @@
+services:
+  dev:
+    build:
+    target:
+    container_name:
+    depends_on:
+      - db-dev
+    env_file:
+    volumes:
+  db-dev:
+    image:
+    restart:
+    environment:
+      POSTGRES_USER:
+      POSTGRES_DB:
+      POSTGRES_PASSWORD:
+    volumes:
+      - pgdata:
+volumes:
+  pgdata

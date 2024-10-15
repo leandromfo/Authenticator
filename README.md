@@ -1,3 +1,19 @@
+# Executar em dev
+
+- `npm i`
+- Criar '.env.dev'
+- Criar '.docker-compose.yml'
+- `npm run db:dev`
+- `npm run wsl:dev`
+
+# Executar em prod
+
+- `npm i`
+- Criar '.env.prod'
+- Criar '.docker-compose.yml'
+- `npm run db:prod`
+- `npm run wsl:dev`
+
 # Authenticator
 Projeto que visa estudar conceitos de código implementando um sistema de autentificação
 
